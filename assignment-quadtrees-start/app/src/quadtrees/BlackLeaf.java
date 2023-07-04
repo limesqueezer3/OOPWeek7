@@ -1,19 +1,27 @@
 package quadtrees;
 
+import java.io.IOException;
 import java.io.Writer;
 
 public class BlackLeaf implements QuadTreeNode {
 
     @Override
     public void fillBitmap(int x, int y, int width, Bitmap bitmap) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'fillBitmap'");
+        for (int i = x; i < i + width; i++) {
+            for (int j = y; y < y + width; y++) {
+                bitmap.setBit(i, j, false);
+            }
+        }
     }
 
     @Override
     public void writeNode(Writer out) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'writeNode'");
+        try {
+            out.write("00");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
     
 }

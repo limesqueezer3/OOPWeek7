@@ -38,10 +38,33 @@ public class QTree {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		throw new IllegalStateException("Invalid input or unexpected condition.");
 	}
 
 	public static QuadTreeNode bitmap2QTree(int x, int y, int width, Bitmap bitmap) {
-		return null;
+		if (bitmap.getBit(0, 0) == false) {
+			int counter = 0;
+			int i = counter % width;
+			int j = counter / width;
+			while (bitmap.getBit(i, j) == false) {
+				if (i == width -1 && j == width -1) {
+					return new BlackLeaf();
+				}
+				counter++;
+			}
+			return new GreyNode(x, y, width, bitmap);
+		} else {
+			int counter = 0;
+			int i = counter % width;
+			int j = counter / width;
+			while (bitmap.getBit(i, j) == true) {
+				if (i == width -1 && j == width -1) {
+					return new WhiteLeaf();
+				}
+				counter++;
+			}
+			return new GreyNode(x, y, width, bitmap);
+		}
 	}
 
 }
