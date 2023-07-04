@@ -7,8 +7,8 @@ public class WhiteLeaf implements QuadTreeNode {
 
     @Override
     public void fillBitmap(int x, int y, int width, Bitmap bitmap) {
-        for (int i = x; i < i + width; i++) {
-            for (int j = y; y < y + width; y++) {
+        for (int i = x; i < x + width; i++) {
+            for (int j = y; j < y + width; j++) {
                 bitmap.setBit(i, j, true);
             }
         }

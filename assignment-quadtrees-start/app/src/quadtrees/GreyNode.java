@@ -30,7 +30,7 @@ public class GreyNode implements QuadTreeNode {
         try {
 			if (input.read() == '1') {
 				return new GreyNode(input);
-			} else if (input.read() == '0') {
+			} else {
 				if (input.read() == '1') {
 					return new WhiteLeaf();
 				} else {
