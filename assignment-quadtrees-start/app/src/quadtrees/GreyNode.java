@@ -1,5 +1,6 @@
 package quadtrees;
 
+import java.io.Reader;
 import java.io.Writer;
 
 public class GreyNode implements QuadTreeNode {
@@ -9,14 +10,23 @@ public class GreyNode implements QuadTreeNode {
     private QuadTreeNode q4;
 
 
-    public GreyNode(QuadTreeNode q1, QuadTreeNode q2, QuadTreeNode q3, QuadTreeNode q4) {
-        this.q1 = q1;
-        this.q2 = q2;
-        this.q3 = q3;
-        this.q4 = q4;
+    public GreyNode(Reader input) {
+        this.q1 = readQTree(input);
+        this.q2 = readQTree(input);
+        this.q3 = readQTree(input);
+        this.q4 = readQTree(input);
     }
 
+
     
+    
+    private QuadTreeNode readQTree(Reader input) {
+        return null;
+    }
+
+
+
+
     @Override
     public void fillBitmap(int x, int y, int width, Bitmap bitmap) {
         // TODO Auto-generated method stub

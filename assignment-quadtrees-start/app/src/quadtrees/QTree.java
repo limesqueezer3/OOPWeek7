@@ -1,5 +1,6 @@
 package quadtrees;
 
+import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 
@@ -23,7 +24,20 @@ public class QTree {
 	}
 
 	private static QuadTreeNode readQTree(Reader input) {
-		return null;
+		try {
+			if (input.read() == '1') {
+				return new GreyNode(input);
+			} else if (input.read() == '0') {
+				if (input.read() == '1') {
+					return new WhiteLeaf();
+				} else {
+					return new BlackLeaf();
+				}
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public static QuadTreeNode bitmap2QTree(int x, int y, int width, Bitmap bitmap) {
